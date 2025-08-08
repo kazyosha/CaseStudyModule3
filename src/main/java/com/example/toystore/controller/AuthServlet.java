@@ -35,6 +35,9 @@ public class AuthServlet extends HttpServlet {
             case "/register":
                 req.getRequestDispatcher("/views/auth/register.jsp").forward(req, resp);
                 break;
+            case "/logout":
+                logout(req,resp);
+                break;
             default:
                 resp.sendError(HttpServletResponse.SC_NOT_FOUND);
                 break;
@@ -49,7 +52,7 @@ public class AuthServlet extends HttpServlet {
         }
         switch (uri) {
             case "/login":
-                authentic(req,resp);
+                authentic(req, resp);
                 break;
             case "/register":
                 registerUser(req, resp);
@@ -91,10 +94,10 @@ public class AuthServlet extends HttpServlet {
                 req.getSession().setAttribute("user", user);
 
                 if (user.getRole() == Role.ADMIN) {
-                    resp.sendRedirect( "/product/list?success=login");
+                    resp.sendRedirect("/product/list?success=login");
                     return;
                 } else {
-                    resp.sendRedirect( "/home?success=login");
+                    resp.sendRedirect("/home?success=login");
                     return;
                 }
             } else {
@@ -107,5 +110,9 @@ public class AuthServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
-
+    public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().invalidate();
+        resp.sendRedirect(req.getContextPath() + "/home?success=logout");
     }
+
+}

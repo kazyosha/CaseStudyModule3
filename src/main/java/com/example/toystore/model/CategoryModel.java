@@ -78,5 +78,35 @@ public class CategoryModel extends BaseModel {
 
         return grouped;
     }
+    public List<Product> getFeaturedModelToys() throws SQLException {
+        String sql = "SELECT p.id, p.name, p.price, p.quantity, p.image, c.name AS category_name, c.description " +
+                "FROM product p " +
+                "JOIN categories_product cp ON p.id = cp.product_id " +
+                "JOIN categories c ON cp.category_id = c.id " +
+                "WHERE c.name = 'Đồ chơi mô hình'";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        List<Product> modelToys = new ArrayList<>();
+
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            double price = rs.getDouble("price");
+            int quantity = rs.getInt("quantity");
+            String image = rs.getString("image");
+            String categoryName = rs.getString("category_name");
+            String categoryDesc = rs.getString("description");
+
+            Category category = new Category(categoryName, categoryDesc);
+            Product product = new Product(id, name, price, quantity, category);
+            product.setImage(image);
+            modelToys.add(product);
+        }
+
+        return modelToys;
+    }
+
 
 }
