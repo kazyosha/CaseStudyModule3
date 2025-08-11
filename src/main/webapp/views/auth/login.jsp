@@ -91,16 +91,16 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
                 <div class="d-grid mb-3">
-                    <button type="submit" class="btn btn-secondary">Log in</button>
+                    <button type="submit" class="btn btn-primary">Log in</button>
                 </div>
 
-                <div class="text-center mb-3 text-muted">— OR —</div>
+<%--                <div class="text-center mb-3 text-muted">— OR —</div>--%>
 
-                <div class="d-grid mb-3">
-                    <button type="button" class="btn btn-outline-primary social-btn">
-                        <i class="bi bi-facebook"></i> Continue with Facebook
-                    </button>
-                </div>
+<%--                <div class="d-grid mb-3">--%>
+<%--                    <button type="button" class="btn btn-outline-primary social-btn">--%>
+<%--                        <i class="bi bi-facebook"></i> Continue with Facebook--%>
+<%--                    </button>--%>
+<%--                </div>--%>
 
                 <div class="text-center mb-2">
                     <a href="#">Forgot your password?</a>

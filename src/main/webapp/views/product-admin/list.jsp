@@ -57,6 +57,7 @@
             <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm...">
         </form>
         <div>
+            <a href="/user/list" class="btn btn-primary">List User</a>
             <a href="/product/add" class="btn btn-success">+ Thêm sản phẩm</a>
             <a href="/category/add" class="btn btn-success">+ Thêm danh mục</a>
             <a href="/invoice/list" class="btn btn-primary">Hóa đơn</a>
