@@ -49,9 +49,11 @@
 <body>
 
 <div class="container">
-    <h1 class="mb-4">TOY STORE</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center; text-align: center" class="mb-4">
+        <h1>TOY STORE</h1>
+        <a href="/auth/logout" class="btn btn-danger">Logout</a>
+    </div>
     <h2 class="mb-3">Danh sách sản phẩm</h2>
-
     <div class="search-box">
         <form method="get" action="/product/search">
             <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm...">

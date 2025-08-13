@@ -52,7 +52,7 @@
                         <button type="submit" class="btn btn-dark">Register</button>
                     </div>
                     <div class="text-center mt-3 small">
-                        Already have an account? <a href="<%= request.getContextPath() %>/login">Login here</a>
+                        Already have an account? <a href="<%= request.getContextPath() %>/auth/login">Login here</a>
                     </div>
                 </form>
             </div>

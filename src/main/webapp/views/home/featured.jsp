@@ -23,7 +23,6 @@
     </style>
 </head>
 <body>
-<!-- Header -->
 <div class="bg-light border-bottom py-2">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
@@ -35,8 +34,15 @@
             <button class="btn btn-outline-primary" type="submit">Tìm</button>
         </form>
         <div>
-            <a href="${pageContext.request.contextPath}/auth/login" class="btn btn-primary">Login</a>
-            <a href="${pageContext.request.contextPath}/auth/register" class="btn btn-outline-secondary me-2">Sign up</a>
+            <c:choose>
+                <c:when test="${sessionScope.user != null}">
+                    <p>Xin chào, ${sessionScope.user.fullName} | <a href="${pageContext.request.contextPath}/auth/logout">Đăng xuất</a></p>
+                </c:when>
+                <c:otherwise>
+                    <a href="${pageContext.request.contextPath}/auth/login" class="btn btn-primary">Đăng nhập</a>
+                    <a href="${pageContext.request.contextPath}/auth/register" class="btn btn-outline-secondary me-2">Đăng ký</a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
@@ -72,7 +78,6 @@
     </div>
 </nav>
 
-<!-- Main layout -->
 <div class="container-fluid mt-4">
     <div class="row">
         <!-- Sidebar bên trái -->
